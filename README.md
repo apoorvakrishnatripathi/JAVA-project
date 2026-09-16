@@ -268,3 +268,7 @@ The main objective of this project is to provide a simple and efficient way to m
 **Hospital Queue Management System**
 
 Built using **Java + Spring Boot + SQLite**.
+
+## Author
+
+Apoorva krishna tripathi 
