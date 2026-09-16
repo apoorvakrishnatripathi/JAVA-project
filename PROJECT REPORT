@@ -1,0 +1,368 @@
+PROJECT REPORT
+HOSPITAL QUEUE MANAGEMENT SYSTEM
+________________________________________
+Submitted By
+Name: Apoorva Krishna Tripathi
+Course: B.Tech – Computer Science & Engineering
+University: VIT Bhopal University
+Project Type: Java Console-Based Application
+________________________________________
+1. Introduction
+The Hospital Queue Management System is a Java-based application designed to manage patients waiting for consultation in different hospital departments.
+The system replaces manual queue management with a computerized priority-based system. Patients are assigned tokens and served according to their priority.
+The priority system is:
+1.	Emergency – Highest priority
+2.	Senior Citizen (60+)
+3.	Normal Patient
+The application is completely command-line based, allowing it to be compiled and executed directly from a terminal.
+________________________________________
+2. Problem Statement
+In hospitals, manually managing patient queues can result in long waiting times, confusion, and difficulty in handling emergency and senior patients.
+The objective of this project is to develop a Hospital Queue Management System in Java that efficiently registers patients, generates tokens, manages queues, and ensures that patients with higher priority are served first.
+________________________________________
+3. Objectives
+The main objectives of the project are:
+•	To digitally register hospital patients.
+•	To generate unique queue tokens.
+•	To organize patients according to priority.
+•	To give emergency patients the highest priority.
+•	To give senior citizens priority over normal patients.
+•	To manage different hospital departments.
+•	To call the next patient automatically.
+•	To complete or cancel patient consultations.
+•	To display queue information and statistics.
+•	To demonstrate Java Object-Oriented Programming concepts.
+________________________________________
+4. Scope of the Project
+The system can be used as a basic prototype for managing patient queues in hospitals.
+It includes:
+•	Patient registration
+•	Department selection
+•	Token generation
+•	Priority management
+•	Queue management
+•	Patient search
+•	Calling the next patient
+•	Completing consultations
+•	Cancelling tokens
+•	Viewing queue statistics
+The project is designed as a console application and does not require a graphical interface.
+________________________________________
+5. Target Users
+The system can be used by:
+•	Hospital reception staff
+•	Doctors and hospital staff
+•	Patients
+•	Students learning Java
+•	Developers developing queue-management applications
+________________________________________
+6. Main Features
+6.1 Patient Registration
+The user can enter:
+•	Patient name
+•	Age
+•	Gender
+•	Contact number
+•	Hospital department
+•	Emergency status
+________________________________________
+6.2 Priority Management
+Patients are automatically assigned priority.
+Priority	Category
+1	Emergency
+2	Senior Citizen (60+)
+3	Normal
+A lower priority number means the patient is served first.
+________________________________________
+6.3 Token Generation
+Every registered patient receives a token number.
+Example:
+Patient: Rahul
+Department: General Medicine
+Token: 5
+Priority: Normal
+Status: Waiting
+Token numbers are maintained separately for each department.
+________________________________________
+6.4 Department Management
+The system supports departments such as:
+•	General Medicine
+•	Cardiology
+•	Orthopedics
+•	Pediatrics
+•	ENT
+•	Emergency
+________________________________________
+6.5 Queue Management
+The system maintains patients in the correct order according to:
+Priority → Token Number
+For example:
+Emergency Token 8
+Emergency Token 12
+Senior Citizen Token 3
+Senior Citizen Token 7
+Normal Token 1
+Normal Token 2
+________________________________________
+6.6 Call Next Patient
+The staff can select Call Next Patient.
+The system automatically selects the highest-priority waiting patient.
+A second patient cannot be called while another patient is currently In Progress.
+________________________________________
+6.7 Complete Consultation
+After consultation, the staff can mark the patient's status as:
+Completed
+________________________________________
+6.8 Cancel Token
+A waiting or active token can be cancelled when required.
+________________________________________
+6.9 Queue Statistics
+The system can display information such as:
+•	Number of waiting patients
+•	Patients currently being served
+•	Completed consultations
+•	Department-wise queue information
+________________________________________
+7. Technologies Used
+Technology	Purpose
+Java	Main programming language
+OOP	System design
+ArrayList	Store patient and queue information
+Scanner	User input
+Collections	Queue sorting and management
+VS Code	Development environment
+Git/GitHub	Version control
+The application is designed to run through the command line/terminal.
+________________________________________
+8. System Design
+The system is divided into multiple classes.
+                 Hospital Queue Management System
+                              |
+             +----------------+----------------+
+             |                |                |
+          Patient         Department       QueueManager
+             |                |                |
+             +----------------+----------------+
+                              |
+                       PriorityManager
+                              |
+                       HospitalQueueSystem
+                              |
+                            Main
+________________________________________
+9. Class Description
+Main.java
+The entry point of the application.
+It starts the Hospital Queue Management System.
+________________________________________
+Patient.java
+Stores patient information such as:
+Patient ID
+Name
+Age
+Gender
+Contact
+Token Number
+Priority
+Status
+Department
+________________________________________
+Department.java
+Represents hospital departments.
+Example:
+General Medicine
+Cardiology
+Orthopedics
+Pediatrics
+ENT
+Emergency
+________________________________________
+PriorityManager.java
+Determines the priority of a patient.
+Logic:
+If Emergency → Priority 1
+Else if Age >= 60 → Priority 2
+Else → Priority 3
+________________________________________
+QueueManager.java
+Responsible for:
+•	Adding patients
+•	Maintaining the queue
+•	Sorting patients
+•	Calling the next patient
+•	Completing consultations
+•	Cancelling tokens
+________________________________________
+HospitalQueueSystem.java
+Contains the main application logic and menu operations.
+________________________________________
+10. Working of the System
+The basic workflow is:
+Start Application
+       ↓
+Main Menu
+       ↓
+Register Patient
+       ↓
+Enter Patient Details
+       ↓
+Select Department
+       ↓
+Determine Priority
+       ↓
+Generate Token
+       ↓
+Add Patient to Queue
+       ↓
+Call Next Patient
+       ↓
+Consultation
+       ↓
+Complete / Cancel
+       ↓
+Update Queue
+________________________________________
+11. Algorithm
+Patient Registration Algorithm
+1. Start
+2. Enter patient details.
+3. Select department.
+4. Check emergency status.
+5. If emergency, assign priority 1.
+6. Else if age >= 60, assign priority 2.
+7. Otherwise assign priority 3.
+8. Generate token number.
+9. Add patient to queue.
+10. Display patient token.
+11. Stop.
+Calling Next Patient
+1. Check whether a patient is already In Progress.
+2. If yes, display an error.
+3. Otherwise find all Waiting patients.
+4. Sort patients by priority.
+5. If priority is equal, compare token number.
+6. Select the first patient.
+7. Change status to In Progress.
+8. Display patient information.
+________________________________________
+12. Sample Output
+==========================================
+   HOSPITAL QUEUE MANAGEMENT SYSTEM
+==========================================
+
+1. Register Patient
+2. View Department Queue
+3. Call Next Patient
+4. Complete Consultation
+5. Cancel Token
+6. Search Patient
+7. View All Patients
+8. View Statistics
+9. Exit
+
+Enter choice: 1
+Patient registration:
+========== PATIENT REGISTRATION ==========
+
+Enter patient name: Rahul
+Enter age: 25
+Enter gender: Male
+Enter contact: 9876543210
+
+Select Department:
+1. General Medicine
+2. Cardiology
+3. Orthopedics
+4. Pediatrics
+5. ENT
+6. Emergency
+
+Enter choice: 1
+
+Is this an emergency? (yes/no): no
+
+Patient registered successfully!
+
+Token Number : 1
+Priority     : Normal
+Status       : Waiting
+________________________________________
+13. Object-Oriented Programming Concepts Used
+Encapsulation
+Patient data is stored inside the Patient class and accessed through methods.
+Classes and Objects
+Different real-world entities such as patients and departments are represented using classes and objects.
+Abstraction
+Complex queue operations are handled internally by the queue-management classes.
+Modularity
+The application is divided into multiple classes, making the program easier to understand and maintain.
+________________________________________
+14. Advantages
+•	Reduces manual queue management.
+•	Automatically handles patient priorities.
+•	Gives emergency patients immediate priority.
+•	Reduces confusion among patients.
+•	Provides organized department-wise queues.
+•	Easy to operate through the terminal.
+•	Demonstrates practical Java programming concepts.
+________________________________________
+15. Limitations
+•	Current version is command-line based.
+•	Data may not be permanently stored if only in-memory collections are used.
+•	It does not provide online appointment booking.
+•	It does not include SMS or email notifications.
+•	It does not have an administrator authentication system.
+________________________________________
+16. Future Enhancements
+The system can be improved by adding:
+•	MySQL/SQLite database integration
+•	Java Swing or JavaFX GUI
+•	Doctor login and authentication
+•	Patient login
+•	Online appointment booking
+•	SMS/email notifications
+•	Estimated waiting time
+•	Doctor availability tracking
+•	Hospital administrator dashboard
+•	Medical history management
+•	Cloud deployment
+•	Mobile application
+________________________________________
+17. Testing
+The following test cases can be used:
+Test Case	Input	Expected Result
+Patient Registration	Valid details	Patient registered
+Emergency Patient	Emergency = Yes	Priority 1
+Senior Patient	Age = 65	Priority 2
+Normal Patient	Age = 25	Priority 3
+Empty Name	Blank name	Validation error
+Call Next	Patients waiting	Highest priority called
+Call Next	Empty queue	No patient message
+Complete	In-progress patient	Status becomes Completed
+Cancel	Waiting patient	Status becomes Cancelled
+________________________________________
+18. Expected Outcome
+The completed system provides a functional hospital queue-management solution capable of registering patients, generating tokens, organizing queues according to priority, and managing patient consultations.
+The project demonstrates practical implementation of Java, Object-Oriented Programming, collections, conditional logic, input validation, and queue-management algorithms.
+________________________________________
+19. Conclusion
+The Hospital Queue Management System provides a simple and efficient method for managing hospital patient queues. Its priority-based system ensures that emergency and senior patients are handled before normal patients.
+The project also demonstrates how Java programming concepts can be applied to develop a practical real-world application. Since the application is command-line based, it can be compiled and executed directly from a terminal without requiring a GUI.
+________________________________________
+20. References
+•	Java Documentation – Oracle
+•	Java Object-Oriented Programming concepts
+•	Java Collections Framework
+•	Queue and Priority Queue concepts
+•	GitHub documentation
+________________________________________
+Project Execution
+From the project root:
+javac -d bin (Get-ChildItem src -Filter *.java).FullName
+Then:
+java -cp bin Main
+Project Title: Hospital Queue Management System
+Language: Java
+Execution: Command Line / Terminal
+Development Environment: VS Code
+
