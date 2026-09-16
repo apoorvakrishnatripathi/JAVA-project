@@ -1,5 +1,3 @@
-# Project Statement
-
 ## Project Title
 
 Hospital Queue Management System
